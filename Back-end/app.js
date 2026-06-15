@@ -26,6 +26,7 @@ const db = require('./models');
 
 var app = express();
 
+if (process.env.NODE_ENV !== "test") {
 sequelize.authenticate()
   .then(() => {
     console.log('Database connected successfully.');
@@ -41,12 +42,15 @@ sequelize.authenticate()
   .catch(err => {
     console.error('Database synchronization failed:', err);
   });
+}
+const jsend = require('jsend');
   
 // Middleware setup
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(jsend.middleware);
 
 // Route setup
 app.use('/', indexRouter);
