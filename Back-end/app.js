@@ -9,6 +9,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 const initRoutes = require('./routes/initRoute');
 const authRoutes = require('./routes/authRoute');
+const productRoutes = require('./routes/productRoute');
+const brandRoutes = require('./routes/brandRoute');
+const categoryRoutes = require('./routes/categoryRoute');
+const cartRoutes = require('./routes/cartRoute');
+const orderRoutes = require('./routes/orderRoute');
+const searchRoutes = require('./routes/searchRoute');
+const membershipRoutes = require('./routes/membershipRoute');
 
 // importing middleware
 const errorHandler = require('./middleware/error.middleware');
@@ -45,6 +52,13 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/init', initRoutes);
 app.use('/auth', authRoutes);
+app.use('/products', productRoutes);
+app.use('/brands', brandRoutes);
+app.use('/categories', categoryRoutes);
+app.use('/carts', cartRoutes);
+app.use('/orders', orderRoutes);
+app.use('/search', searchRoutes);
+app.use('/memberships', membershipRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
