@@ -4,6 +4,7 @@ var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const swaggerDocs = require('./swaggers');
 
 // Importing routes
 var indexRouter = require('./routes/index');
@@ -51,6 +52,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(jsend.middleware);
+
+swaggerDocs(app);
 
 // Route setup
 app.use('/', indexRouter);

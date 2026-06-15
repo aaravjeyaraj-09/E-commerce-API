@@ -1,0 +1,511 @@
+openapi: 3.0.0
+
+info:
+  title: Noroff E-commerce API
+  version: 1.0.0
+  description: API documentation for the Noroff E-commerce project
+
+servers:
+  - url: http://localhost:3000
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+paths:
+
+  /auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstname:
+                  type: string
+                lastname:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                address:
+                  type: string
+                city:
+                  type: string
+                telephone:
+                  type: string
+
+      responses:
+        '201':
+          description: User registered successfully
+
+  /auth/login:
+    post:
+      summary: Login user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+
+      responses:
+        '200':
+          description: Login successful
+
+  /auth/profile:
+    get:
+      summary: Get logged in user profile
+      security:
+        - bearerAuth: []
+
+      responses:
+        '200':
+          description: User profile retrieved successfully
+
+  /auth/admin:
+    get:
+      summary: Admin protected route
+      security:
+        - bearerAuth: []
+
+      responses:
+        '200':
+          description: Admin route accessed successfully
+
+  /products:
+    get:
+      summary: Get all products
+      responses:
+        '200':
+          description: Products retrieved successfully
+
+    post:
+      summary: Create a new product
+      security:
+        - bearerAuth: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+                description:
+                  type: string
+                stock:
+                  type: integer
+                brandId:
+                  type: integer
+                categoryId:
+                  type: integer
+
+      responses:
+        '201':
+          description: Product created successfully
+
+  /products/{id}:
+    get:
+      summary: Get product by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Product retrieved successfully
+
+    put:
+      summary: Update product by ID
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+                description:
+                  type: string
+                stock:
+                  type: integer
+                brandId:
+                  type: integer
+                categoryId:
+                  type: integer
+
+      responses:
+        '200':
+          description: Product updated successfully
+
+    delete:
+      summary: Delete product by ID
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Product deleted successfully
+
+  /brands:
+    get:
+      summary: Get all brands
+      responses:
+        '200':
+          description: Brands retrieved successfully
+
+    post:
+      summary: Create a new brand
+      security:
+        - bearerAuth: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+
+      responses:
+        '201':
+          description: Brand created successfully
+
+  /brands/{id}:
+    get:
+      summary: Get brand by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Brand retrieved successfully
+
+    put:
+      summary: Update brand by ID
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+
+      responses:
+        '200':
+          description: Brand updated successfully
+
+    delete:
+      summary: Delete brand by ID
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Brand deleted successfully
+
+  /categories:
+    get:
+      summary: Get all categories
+      responses:
+        '200':
+          description: Categories retrieved successfully
+
+    post:
+      summary: Create a new category
+      security:
+        - bearerAuth: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+
+      responses:
+        '201':
+          description: Category created successfully
+
+  /categories/{id}:
+    get:
+      summary: Get category by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Category retrieved successfully
+
+    put:
+      summary: Update category by ID
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+
+      responses:
+        '200':
+          description: Category updated successfully
+
+    delete:
+      summary: Delete category by ID
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Category deleted successfully
+
+  /carts:
+    get:
+      summary: Get user cart
+      security:
+        - bearerAuth: []
+
+      responses:
+        '200':
+          description: Cart retrieved successfully
+
+  /carts/add:
+    post:
+      summary: Add product to cart
+      security:
+        - bearerAuth: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productId:
+                  type: integer
+                quantity:
+                  type: integer
+
+      responses:
+        '200':
+          description: Product added to cart
+
+  /carts/update/{id}:
+    put:
+      summary: Update cart item quantity
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: integer
+
+      responses:
+        '200':
+          description: Cart updated successfully
+
+  /carts/remove/{id}:
+    delete:
+      summary: Remove item from cart
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Item removed from cart
+
+  /carts/clear:
+    delete:
+      summary: Clear user cart
+      security:
+        - bearerAuth: []
+
+      responses:
+        '200':
+          description: Cart cleared successfully
+
+  /orders:
+    get:
+      summary: Get user orders
+      security:
+        - bearerAuth: []
+
+      responses:
+        '200':
+          description: Orders retrieved successfully
+
+  /orders/place:
+    post:
+      summary: Place an order
+      security:
+        - bearerAuth: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderName:
+                  type: string
+                totalAmount:
+                  type: number
+                membershipName:
+                  type: string
+                membershipDiscount:
+                  type: number
+                status:
+                  type: string
+
+      responses:
+        '201':
+          description: Order placed successfully
+
+  /orders/{id}:
+    get:
+      summary: Get order by ID
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: Order retrieved successfully
+
+  /search:
+    get:
+      summary: Search products
+      parameters:
+        - in: query
+          name: query
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: Search completed successfully
