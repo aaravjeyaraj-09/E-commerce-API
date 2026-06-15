@@ -8,6 +8,10 @@ var logger = require('morgan');
 // Importing routes
 var indexRouter = require('./routes/index');
 const initRoutes = require('./routes/initRoute');
+const authRoutes = require('./routes/authRoute');
+
+// importing middleware
+const errorHandler = require('./middleware/error.middleware');
 
 // Database connection
 const sequelize = require('./config/config');
@@ -40,6 +44,7 @@ app.use(cookieParser());
 // Route setup
 app.use('/', indexRouter);
 app.use('/init', initRoutes);
+app.use('/auth', authRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
