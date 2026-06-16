@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const initController = require("../Controllers/initController");
+const initController = require("../controllers/initController");
 
 router.post("/", initController.initializeDatabase);
 
