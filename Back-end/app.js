@@ -7,16 +7,16 @@ var logger = require('morgan');
 const swaggerDocs = require('./swaggers');
 
 // Importing routes
-var indexRouter = require('./routes/index');
-const initRoutes = require('./routes/initRoute');
-const authRoutes = require('./routes/authRoute');
-const productRoutes = require('./routes/productRoute');
-const brandRoutes = require('./routes/brandRoute');
-const categoryRoutes = require('./routes/categoryRoute');
-const cartRoutes = require('./routes/cartRoute');
-const orderRoutes = require('./routes/orderRoute');
-const searchRoutes = require('./routes/searchRoute');
-const membershipRoutes = require('./routes/membershipRoute');
+var indexRouter = require('./Routes/index');
+const initRoutes = require('./Routes/initRoute');
+const authRoutes = require('./Routes/authRoute');
+const productRoutes = require('./Routes/productRoute');
+const brandRoutes = require('./Routes/brandRoute');
+const categoryRoutes = require('./Routes/categoryRoute');
+const cartRoutes = require('./Routes/cartRoute');
+const orderRoutes = require('./Routes/orderRoute');
+const searchRoutes = require('./Routes/searchRoute');
+const membershipRoutes = require('./Routes/membershipRoute');
 
 // importing middleware
 const errorHandler = require('./middleware/error.middleware');
