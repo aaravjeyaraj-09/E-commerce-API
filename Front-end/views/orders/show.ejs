@@ -1,0 +1,143 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <h1>Order Details</h1>
+
+            <a
+                href="/orders"
+                class="btn btn-secondary"
+            >
+                Back
+            </a>
+
+        </div>
+
+        <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Order Name:</strong>
+
+                    <p class="mt-1">
+                        <%= order.orderName %>
+                    </p>
+
+                </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Total Amount:</strong>
+
+                    <p class="mt-1">
+                        $<%= order.totalAmount %>
+                    </p>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Membership Name:</strong>
+
+                    <p class="mt-1">
+                        <%= order.membershipName %>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Membership Discount:</strong>
+
+                    <p class="mt-1">
+                        <%= order.membershipDiscount %>%
+                    </p>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Status:</strong>
+
+                    <div class="mt-2">
+
+                        <% if (order.status === 'Completed') { %>
+
+                            <span class="badge bg-success">
+                                <%= order.status %>
+                            </span>
+
+                        <% } else if (order.status === 'In Progress') { %>
+
+                            <span class="badge bg-warning text-dark">
+                                <%= order.status %>
+                            </span> 
+
+                        <% } else if (order.status === 'Ordered') { %>
+                            <span class="badge bg-info text-dark">
+                                <%= order.status %>
+                            </span>
+
+                        <% } else { %>
+
+                            <span class="badge bg-danger">
+                                <%= order.status %>
+                            </span>
+
+                        <% } %>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <strong>Active:</strong>
+
+                <div class="mt-2">
+
+                    <% if (order.isActive) { %>
+
+                        <span class="badge bg-success">
+                            Active
+                        </span>
+
+                    <% } else { %>
+
+                        <span class="badge bg-danger">
+                            Inactive
+                        </span>
+
+                    <% } %>
+
+                </div>
+
+            </div>
+
+            <a
+                href="/orders/edit/<%= order.id %>"
+                class="btn btn-warning"
+            >
+                Edit Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('../partials/footer') %>

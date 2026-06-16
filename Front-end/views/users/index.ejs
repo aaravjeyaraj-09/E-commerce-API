@@ -1,0 +1,111 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Users</h1>
+
+        <a
+            href="/users/register"
+            class="btn btn-primary"
+        >
+            Add User
+        </a>
+
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <table class="table table-striped align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Telephone</th>
+                        <th>Role</th>
+                        <th>Membership</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <% users.forEach(user => { %>
+
+                        <tr>
+
+                            <td>
+                                <%= user.firstname %>
+                            </td>
+
+                            <td>
+                                <%= user.lastname %>
+                            </td>
+
+                            <td>
+                                <%= user.username %>
+                            </td>
+
+                            <td>
+                                <%= user.email %>
+                            </td>
+
+                            <td>
+                                <%= user.address %>
+                            </td>
+
+                            <td>
+                                <%= user.city %>
+                            </td>
+
+                            <td>
+                                <%= user.telephone %>
+                            </td>
+
+                            <td>
+
+                                <% if (user.roleId === 1) { %>
+
+                                    <span class="badge bg-danger">
+                                        Admin
+                                    </span>
+
+                                <% } else { %>
+
+                                    <span class="badge bg-secondary">
+                                        User
+                                    </span>
+
+                                <% } %>
+
+                            </td>
+
+                            <td>
+                                <%= user.membershipId %>
+                            </td>
+
+                        </tr>
+
+                    <% }) %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('../partials/footer') %>

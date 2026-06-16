@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const productController = require('../controllers/productController');
+const searchController = require('../Controllers/searchController');
 
 const isAuth = require('../middleware/auth.middleware');
 const isAdmin = require('../middleware/admin.middleware');
 
 // Get all products
 router.get('/', productController.getAllProducts);
+
+// search products by name
+router.get('/search', searchController.searchProducts);
 
 // Get single product by id
 router.get('/:id', productController.getProductById);

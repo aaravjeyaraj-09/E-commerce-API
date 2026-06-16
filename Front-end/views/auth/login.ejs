@@ -1,0 +1,94 @@
+<%- include('../partials/header') %>
+
+<div class="container-fluid">
+
+<div class="row vh-100">
+
+    <div class="col-md-8 d-none d-md-block bg-image">
+
+        <div class="overlay-text">
+
+            <h1>Noroff E-Commerce Admin</h1>
+
+            <p>
+                Admin dashboard for managing
+                products, categories, brands,
+                orders, and users.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div
+        class="col-md-4 d-flex justify-content-center align-items-center"
+    >
+
+        <div class="card shadow p-4 w-75">
+
+            <h2 class="text-center mb-4">
+                Admin Login
+            </h2>
+<% if (typeof errorMessage !== 'undefined') { %>
+
+<div
+    class="alert alert-danger alert-dismissible fade show"
+>
+
+    <strong>Login Error!</strong>
+
+    <%= errorMessage %>
+
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+    ></button>
+
+</div>
+
+<% } %>
+
+            <form action="/auth/login" method="POST">
+
+                <div class="mb-3">
+
+                    <label>Username</label>
+
+                    <input
+                        type="text"
+                        name="username"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        required
+                    >
+
+                </div>
+
+                <button class="btn btn-dark w-100">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<%- include('../partials/footer') %>

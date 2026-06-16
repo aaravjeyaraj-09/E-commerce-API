@@ -1,0 +1,63 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-5">
+
+<div class="card shadow p-4">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h1>Create Category</h1>
+
+        <a
+            href="/categories"
+            class="btn btn-secondary"
+        >
+            Back
+        </a>
+
+    </div>
+
+    <form action="/categories/create" method="POST">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                class="form-control"
+                required
+            >
+
+        </div>
+
+         <div class="mb-3">
+
+            <label class="form-label">
+                Description
+            </label>
+
+            <textarea
+                name="description"
+                class="form-control"
+                rows="4"
+                required
+            ></textarea>
+
+        </div>
+
+        <button class="btn btn-success">
+            Create Category
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+<%- include('../partials/footer') %>

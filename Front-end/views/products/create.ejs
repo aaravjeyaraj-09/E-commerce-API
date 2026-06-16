@@ -1,0 +1,121 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-5">
+    
+<div class="card shadow p-4">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h1>Create Product</h1>
+
+        <a
+            href="/products"
+            class="btn btn-secondary"
+        >
+            Back
+        </a>
+
+    </div>
+
+    <form action="/products/create" method="POST">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Name
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                class="form-control"
+                required
+            >
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Description
+            </label>
+
+            <textarea
+                name="description"
+                class="form-control"
+                rows="4"
+            ></textarea>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Price
+            </label>
+
+            <input
+                type="number"
+                step="0.01"
+                name="price"
+                class="form-control"
+                required
+            >
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Stock
+            </label>
+
+            <input
+                type="number"
+                name="stock"
+                class="form-control"
+                required
+            >
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Brand ID
+            </label>
+
+            <input
+                type="number"
+                name="brandId"
+                class="form-control"
+            >
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Category ID
+            </label>
+
+            <input
+                type="number"
+                name="categoryId"
+                class="form-control"
+            >
+
+        </div>
+
+        <button class="btn btn-success">
+            Create Product
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+<%- include('../partials/footer') %>
