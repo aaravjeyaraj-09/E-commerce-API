@@ -9,14 +9,14 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const authRouter = require('./routes/authRoutes');
-const productRouter = require('./routes/productRoutes');
-const categoryRouter = require('./routes/categoryRoutes');
-const brandsRouter = require('./routes/brandsRoutes');
-const membershipRouter = require('./routes/membershipRoutes');
-const orderRouter = require('./routes/orderRoutes');
-const searchRouter = require('./routes/searchRoutes');
+var usersRouter = require('./routes/users.js');
+const authRouter = require('./routes/authRoutes.js');
+const productRouter = require('./routes/productRoutes.js');
+const categoryRouter = require('./routes/categoryRoutes.js');
+const brandsRouter = require('./routes/brandsRoutes.js');
+const membershipRouter = require('./routes/membershipRoutes.js');
+const orderRouter = require('./routes/orderRoutes.js');
+const searchRouter = require('./routes/searchRoutes.js');
 
 const authMiddleware = require('./middleware/auth.Middleware.js');
 
