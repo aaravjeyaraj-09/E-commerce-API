@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { Op } = require("sequelize");
 
-const db = require("../models");
+const db = require("../Models");
 
 const User = db.User;
 

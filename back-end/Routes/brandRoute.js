@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const brandController = require('../controllers/brandController');
+const brandController = require('../Controllers/brandController');
 
-const isAuth = require('../middleware/auth.middleware');
-const isAdmin = require('../middleware/admin.middleware');
+const isAuth = require('../Middleware/auth.middleware');
+const isAdmin = require('../Middleware/admin.middleware');
 
 // Get all brands
 router.get('/', brandController.getAllBrands);

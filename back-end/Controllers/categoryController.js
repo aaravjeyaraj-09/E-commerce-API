@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../Models');
 
 const Category = db.Category;
 

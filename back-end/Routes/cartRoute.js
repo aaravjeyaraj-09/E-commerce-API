@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const cartController = require('../controllers/cartController');
+const cartController = require('../Controllers/cartController');
 
-const isAuth = require('../middleware/auth.middleware');
+const isAuth = require('../Middleware/auth.middleware');
 
 // Add to cart
 router.post('/add', isAuth, cartController.addToCart);

@@ -1,6 +1,6 @@
 const axios = require("axios");
 const bcrypt = require("bcrypt");
-const db = require("../models");
+const db = require("../Models");
 
 exports.initializeDatabase = async (req, res) => {
     try {
